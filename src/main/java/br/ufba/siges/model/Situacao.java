@@ -1,16 +1,16 @@
 package br.ufba.siges.model;
 
-public enum TipoDeSala {
-	SALA_DE_AULA("Sala de Aula"),
-	LABORATORIO("Laboratorio"),
-	AUDITORIO("Auditorio");
+public enum Situacao {
+	Disponivel("Disponivel"),
+	Manutencao("Manutencao"),
+	Interditado("Interditado");
 	
 	private String descricao;
 
 
- TipoDeSala(String descricao)
+ Situacao(String descricao)
 {
-	this.descricao = descricao;
+	this.descricao= descricao;
 }
 
 public String getDescricao()

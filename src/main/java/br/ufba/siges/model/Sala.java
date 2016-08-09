@@ -11,10 +11,10 @@ public class Sala {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //Significa que os valores de indice tabela serão criados automaticamente através de AUTO INCREMENT
 	private Integer id_sala;
-	private Integer numeroSala;
+	private Integer numero_sala;
 	private String instituto;
 	private String departamento;
-	private TipoDeSala tipoSala;
+	private TipoDeSala tipo_sala;
 	private boolean situacao;
 	private Integer capacidade;
 	
@@ -31,14 +31,14 @@ public class Sala {
 		this.id_sala = id_sala;
 	}
 	
-	public Integer getnumeroSala()
+	public Integer getNumero_sala()
 	{
-		return this.numeroSala;
+		return this.numero_sala;
 	}
 	
-	public void setnumeroSala(Integer numeroSala)
+	public void setNumero_sala(Integer numero_sala)
 	{
-		this.numeroSala = numeroSala;
+		this.numero_sala = numero_sala;
 	}
 	public String getInstituto()
 	{
@@ -60,14 +60,14 @@ public class Sala {
 		this.departamento = departamento;
 	}
 	
-	public TipoDeSala getTipoSala()
+	public TipoDeSala getTipo_sala()
 	{
-		return this.tipoSala;
+		return this.tipo_sala;
 	}
 	
-	public void setTipoSala(TipoDeSala tipoSala)
+	public void setTipoSala(TipoDeSala tipo_sala)
 	{
-		this.tipoSala = tipoSala;
+		this.tipo_sala = tipo_sala;
 	}
 	
 	public boolean getSituacao()

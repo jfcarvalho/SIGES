@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Cadastro de Usuários</title>
+</head>
+
+
+<form class="form-horizontal" method="POST" action="/siges/salas" th:object="${sala}">
+		
+		<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="clearfix">
+			<h1 class="panel-title">Nova Sala</h1>
+		<a class="btn btn-link aw-link-panel" href="/siges/salas">Voltar para pesquisa</a>
+		</div>
+		</div>
+	
+	
+	<div class="panel-body">
+	<input type="hidden" th:field="*{id_sala}" />
+		<div class="form-group" >
+			<label for="nome" class="col-sm-2 control-label" >Numero de sala:</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="numero_sala" name="numero_sala" th:field="*{numero_sala}"/>
+			</div>
+		</div>
+			
+			<div class="form-group" >
+			<label for="nome" class="col-sm-2 control-label" >Departamento:</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="departamento" name="departamento" th:field="*{departamento}"/>
+			</div>
+		</div>
+		
+		<div class="form-group" >
+			<label for="nome" class="col-sm-2 control-label" >Instituto:</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="instituto" name="instituto" th:field="*{instituto}"/>
+			</div>
+		</div>
+		
+		<label for="nome" class="col-sm-2 control-label">Situação:</label>
+			<div class="col-sm-2">
+				<select class="form-control" name="situacao">
+					<option th:each="situacao: ${todasSituacoes}" th:value="${situacao}" th:text="${situacao.descricao}"></option>
+				</select>
+			</div>
+</div>
+
+<label for="nome" class="col-sm-2 control-label">Tipo de Sala:</label>
+			<div class="col-sm-2">
+				<select class="form-control" name="tipo_sala">
+					<option th:each="tipo: ${todosTiposSalas}" th:value="${tipo}" th:text="${tipo.descricao}"></option>
+				</select>
+			</div>
+</div>
+		
+			<div class="form-group">
+     		<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-primary">Cadastrar</button>
+			</div>
+		</div>
+		
+		
+
+	
+</form>
+
+</html>
