@@ -38,6 +38,7 @@ public class SalasController {
 		mv.addObject(new Sala());
 		return mv;
 	}
+	@RequestMapping(method = RequestMethod.POST)
 	public String salvar(@Validated Sala sala, Errors errors, RedirectAttributes attributes)
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
@@ -79,6 +80,7 @@ public class SalasController {
 		List<Sala> todasSalas= salas.findAll();
 		return todasSalas;
 	}
+	
 	@ModelAttribute("todasSituacoes")
 	public List<Situacao> todasSituacoes() {
 		return Arrays.asList(Situacao.values());

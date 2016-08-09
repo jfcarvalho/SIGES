@@ -36,12 +36,15 @@ public class UsuariosController {
 		//mv.addObject("todosNiveisUsuario", Nivel.values());
 		return mv;
 	}
-	public String salvar(@Validated Usuario usuario, Errors errors, RedirectAttributes attributes)
+	@RequestMapping(method = RequestMethod.POST)
+	public String salvar(Usuario usuario, Errors errors, RedirectAttributes attributes)
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+		System.out.println(usuario.getNome());
+		System.out.println(usuario.getPassword());
 		usuarios.save(usuario);
 		
-		attributes.addFlashAttribute("mensagem", "Setor salvo com sucesso!");	
+		attributes.addFlashAttribute("mensagem", "Usuario salvo com sucesso!");	
 		return "redirect:/siges/usuarios/novo";
 	}
 	
@@ -49,6 +52,7 @@ public class UsuariosController {
 	public ModelAndView pesquisar()
 	{
 		List<Usuario> todosUsuarios= usuarios.findAll();
+		//System.out.println(todosUsuarios.size());
 		ModelAndView mv = new ModelAndView("/pesquisa/PesquisaUsuarios");
 	    mv.addObject("usuarios", todosUsuarios);
 		return mv;

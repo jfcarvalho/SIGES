@@ -46,6 +46,11 @@
 					<option th:each="situacao: ${todasSituacoes}" th:value="${situacao}" th:text="${situacao.descricao}"></option>
 				</select>
 			</div>
+			
+				<label for="nome" class="col-sm-2 control-label">Capacidade:</label>
+			<div class="col-sm-2">
+				<input type="text" class="form-control" id="capacidade" name="capacidade" th:field="*{capacidade}"/>
+			</div>
 </div>
 
 <label for="nome" class="col-sm-2 control-label">Tipo de Sala:</label>
