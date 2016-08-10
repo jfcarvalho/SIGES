@@ -43,7 +43,7 @@
 		<label for="nome" class="col-sm-2 control-label">Situação:</label>
 			<div class="col-sm-2">
 				<select class="form-control" name="situacao">
-					<option th:each="situacao: ${todasSituacoes}" th:value="${situacao}" th:text="${situacao.descricao}"></option>
+					<option th:each="situacao: ${todasSituacoes}" th:value="${situacao}" th:text="${situacao.descricao}" th:selected="${s} ? ${s.situacao.descricao} == ${situacao.descricao}"></option>
 				</select>
 			</div>
 			
@@ -56,7 +56,7 @@
 <label for="nome" class="col-sm-2 control-label">Tipo de Sala:</label>
 			<div class="col-sm-2">
 				<select class="form-control" name="tipo_sala">
-					<option th:each="tipo: ${todosTiposSalas}" th:value="${tipo}" th:text="${tipo.descricao}"></option>
+					<option th:each="tipo: ${todosTiposSalas}" th:value="${tipo}" th:text="${tipo.descricao}" th:selected="${s} ? ${s.tipo_sala.descricao} == ${tipo.descricao}"></option>
 				</select>
 			</div>
 </div>

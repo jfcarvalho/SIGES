@@ -62,7 +62,7 @@ public class UsuariosController {
 	public ModelAndView edicao(@PathVariable("id_usuario") Usuario usuario)
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-		mv.addObject("usuario", usuario);
+		mv.addObject("u", usuario);
 		mv.addObject(usuario);
 		return mv;
 	}
