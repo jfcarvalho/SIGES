@@ -67,9 +67,11 @@ public class SalasController {
 		return mv;
 	}
 	
-	@RequestMapping(value="{id_usuario}", method=RequestMethod.DELETE)
-	public String excluir(@PathVariable Integer id_sala, RedirectAttributes attributes)
+	@RequestMapping("/salas/{id_sala}/excluir")
+	public String excluir(@PathVariable("id_sala") Integer id_sala, RedirectAttributes attributes)
 	{
+		//ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+		System.out.println(id_sala);
 		salas.delete(id_sala);
 		attributes.addFlashAttribute("mensagem", "Sala excluida com sucesso com sucesso!");	
 		return "redirect:/siges/salas";
