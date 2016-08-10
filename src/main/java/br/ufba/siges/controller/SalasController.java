@@ -42,6 +42,7 @@ public class SalasController {
 	public String salvar(@Validated Sala sala, Errors errors, RedirectAttributes attributes)
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+		System.out.println(sala.getTipo_sala());
 		salas.save(sala);
 		
 		attributes.addFlashAttribute("mensagem", "Sala salva com sucesso!");	

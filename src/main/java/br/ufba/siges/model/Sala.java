@@ -65,7 +65,7 @@ public class Sala {
 		return this.tipo_sala;
 	}
 	
-	public void setTipoSala(TipoDeSala tipo_sala)
+	public void setTipo_sala(TipoDeSala tipo_sala)
 	{
 		this.tipo_sala = tipo_sala;
 	}
