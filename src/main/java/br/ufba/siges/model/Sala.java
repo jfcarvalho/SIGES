@@ -15,7 +15,7 @@ public class Sala {
 	private String instituto;
 	private String departamento;
 	private TipoDeSala tipo_sala;
-	private boolean situacao;
+	private Situacao situacao;
 	private Integer capacidade;
 	
 	
@@ -70,12 +70,12 @@ public class Sala {
 		this.tipo_sala = tipo_sala;
 	}
 	
-	public boolean getSituacao()
+	public Situacao getSituacao()
 	{
 		return this.situacao;
 	}
 	
-	public void setSituacao(boolean situacao)
+	public void setSituacao(Situacao situacao)
 	{
 		this.situacao = situacao;
 	}

@@ -35,10 +35,10 @@
 		<table class="table table-bordered table-striped">
 		
 			<thead>
-				<tr><th class="text-center col-md-1">#</th>
-				<th class="text-center col-md-2">Número</th>
+				<tr>
+				<th class="text-center col-md-2">Número da sala</th>
+				<th class="text-center col-md-2">Tipo de sala</th>
 				<th class="text-center col-md-2">Instituto</th>
-				<th class="text-center col-md-2">Departamento</th>
 				<th class="text-center col-md-2">Capacidade</th>
 				<th class="text-center col-md-2">Situação</th>
 				<th class="text-center col-md-1">Ação</th>
@@ -48,8 +48,8 @@
 			<tbody>
 				<tr th:each="sala : ${salas}">
 					<td class="text-center" th:text="${sala.numero_sala}"></td>
+					<td class="text-center" th:text="${sala.tipo_sala.descricao}"></td>
 					<td class="text-center" th:text="${sala.instituto}"></td>
-					<td class="text-center" th:text="${sala.departamento}"></td>
 					<td class="text-center" th:text="${sala.capacidade}"></td>
 					<td class="text-center" th:text="${sala.situacao.descricao}"></td>																													   
 					<td class="text-center"><a class="btn btn-link btn-xs" th:href="@{/siges/salas/{id_sala}(id_sala=${sala.id_sala})}" ><span class="glyphicon glyphicon-pencil" ></span></a><a class="btn btn-link btn-xs" data-toggle="modal" data-target="#confirmacaoExclusaoModal" th:attr="data-id_usuario=${sala.id_sala}, data-nome=${sala.numero_sala}"><span class="glyphicon glyphicon-remove"></span></a></td>
