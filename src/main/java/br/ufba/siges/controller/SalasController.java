@@ -58,7 +58,7 @@ public class SalasController {
 		return mv;
 	}
 	
-	@RequestMapping("{id_usuario}")
+	@RequestMapping("{id_sala}")
 	public ModelAndView edicao(@PathVariable("id_sala") Sala sala)
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
