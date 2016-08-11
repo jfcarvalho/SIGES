@@ -27,6 +27,7 @@ import br.ufba.siges.repository.Salas;
 
 public class SalasController {
 	private static final String CADASTRO_VIEW = "/cadastro/CadastroSala"; 
+	private static final String REMOCAO_MENU = "/remocao/RemoverSala"; 
 	@Autowired
 	private Salas salas;
 	
@@ -67,8 +68,28 @@ public class SalasController {
 		return mv;
 	}
 	
-	@RequestMapping("/salas/{id_sala}/excluir")
+	@RequestMapping("/{id_sala}/menuremocao")
+	public ModelAndView menuremocao(@PathVariable("id_sala") Sala sala)
+	{
+		ModelAndView mv = new ModelAndView(REMOCAO_MENU);
+		mv.addObject("s", sala);
+		mv.addObject(sala);
+		return mv;
+	}
+	/*
+	@RequestMapping(value="{id_sala}", method=RequestMethod.DELETE)
 	public String excluir(@PathVariable("id_sala") Integer id_sala, RedirectAttributes attributes)
+	{
+		//ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+		System.out.println(id_sala);
+		salas.delete(id_sala);
+		attributes.addFlashAttribute("mensagem", "Sala excluida com sucesso com sucesso!");	
+		return "redirect:/siges/salas";
+	}
+	*/
+	
+	@RequestMapping("/remove/{id_sala}")
+	public String remove(@PathVariable("id_sala") Integer id_sala, RedirectAttributes attributes)
 	{
 		//ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		System.out.println(id_sala);

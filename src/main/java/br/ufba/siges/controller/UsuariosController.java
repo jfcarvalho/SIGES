@@ -67,11 +67,13 @@ public class UsuariosController {
 		return mv;
 	}
 	
-	@RequestMapping(value="{id_usuario}", method=RequestMethod.DELETE)
-	public String excluir(@PathVariable Integer id_usuario, RedirectAttributes attributes)
+	@RequestMapping("/remove/{id_usuario}")
+	public String remove(@PathVariable("id_usuario") Integer id_usuario, RedirectAttributes attributes)
 	{
+		//ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+		System.out.println(id_usuario);
 		usuarios.delete(id_usuario);
-		attributes.addFlashAttribute("mensagem", "Usuario excluido com sucesso com sucesso!");	
+		attributes.addFlashAttribute("mensagem", "Sala excluida com sucesso com sucesso!");	
 		return "redirect:/siges/usuarios";
 	}
 	
