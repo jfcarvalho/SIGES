@@ -22,12 +22,12 @@
    				 </div>
  			 </div>
  			 <div class="col-lg-12">
- 			 	<input type="radio" name ="nome" /> Nome
- 			 	<input type="radio" name ="setor" /> Setor
+ 			 	<input type="radio" name ="numero" /> Número da sala
+ 			 	<input type="radio" name ="instituto" /> Instituto
  			 </div>
  			  
  			</form>
-			<a class="btn btn-link aw-link-panel" href="/siges/salas/novo">Novo usuário</a>
+			<a class="btn btn-link aw-link-panel" href="/siges/salas/novo">Nova sala</a>
 		</div>
 		</div>
 		<div class="panel-body">
@@ -47,8 +47,8 @@
 			</thead>
 			<tbody>
 				<tr th:each="sala : ${salas}">
-					<td class="text-center" th:text="${sala.numero_sala}"></td>
-					<td class="text-center" th:text="${sala.tipo_sala.descricao}"></td>
+					<td class="text-center" th:text="${sala.numero}"></td>
+					<td class="text-center" th:text="${sala.tipo.descricao}"></td>
 					<td class="text-center" th:text="${sala.instituto}"></td>
 					<td class="text-center" th:text="${sala.capacidade}"></td>
 					<td class="text-center" th:text="${sala.situacao.descricao}"></td>																													   

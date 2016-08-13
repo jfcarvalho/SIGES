@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 
-<title>Cadastro de Usuários</title>
+<title>Cadastro de Salas</title>
 </head>
 
 
@@ -22,7 +22,7 @@
 		<div class="form-group" >
 			<label for="nome" class="col-sm-2 control-label" >Numero de sala:</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control" id="numero_sala" name="numero_sala" th:field="*{numero_sala}"/>
+				<input type="text" class="form-control" id="numero" name="numero" th:field="*{numero}"/>
 			</div>
 		</div>
 			
@@ -55,8 +55,8 @@
 
 <label for="nome" class="col-sm-2 control-label">Tipo de Sala:</label>
 			<div class="col-sm-2">
-				<select class="form-control" name="tipo_sala">
-					<option th:each="tipo: ${todosTiposSalas}" th:value="${tipo}" th:text="${tipo.descricao}" th:selected="${s} ? ${s.tipo_sala.descricao} == ${tipo.descricao}"></option>
+				<select class="form-control" name="tipo">
+					<option th:each="tipo: ${todosTiposSalas}" th:value="${tipo}" th:text="${tipo.descricao}" th:selected="${s} ? ${s.tipo.descricao} == ${tipo.descricao}"></option>
 				</select>
 			</div>
 </div>

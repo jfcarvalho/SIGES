@@ -8,7 +8,7 @@ import br.ufba.siges.model.Sala;
 import br.ufba.siges.model.Usuario;
 
 public interface Salas extends JpaRepository<Sala, Integer>{
-	
-
+	List<Sala> findByNumero(String numero);
+	List<Sala> findByInstitutoContaining(String Instituto);
 	
 }

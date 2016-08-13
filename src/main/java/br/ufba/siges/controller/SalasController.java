@@ -43,13 +43,13 @@ public class SalasController {
 	public String salvar(@Validated Sala sala, Errors errors, RedirectAttributes attributes)
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-		System.out.println(sala.getTipo_sala());
 		salas.save(sala);
 		
 		attributes.addFlashAttribute("mensagem", "Sala salva com sucesso!");	
 		return "redirect:/siges/salas/novo";
 	}
 	
+	/*
 	@RequestMapping
 	public ModelAndView pesquisar()
 	{
@@ -58,6 +58,38 @@ public class SalasController {
 	    mv.addObject("salas", todasSalas);
 		return mv;
 	}
+	*/
+	
+	@RequestMapping(method= RequestMethod.GET)
+	public ModelAndView pesquisar(String busca, String numero, String instituto)
+	{
+		//List<Usuario> todosUsuarios= usuarios.findAll();
+		
+		
+		if(numero != null) {
+			if(busca != null && numero.equals("on"))
+			{
+				List<Sala> todasSalas= salas.findByNumero(busca);
+				ModelAndView mv = new ModelAndView("/pesquisa/PesquisaSalas");
+				mv.addObject("salas", todasSalas);
+				return mv;
+			}
+		}
+		else if(instituto != null && instituto.equals("on") )
+		{
+			List<Sala> todasSalas= salas.findByInstitutoContaining(busca);
+			ModelAndView mv = new ModelAndView("/pesquisa/PesquisaSalas");
+			mv.addObject("salas", todasSalas);
+			return mv;
+		}
+		
+		List<Sala> todasSalas= salas.findAll();
+		ModelAndView mv = new ModelAndView("/pesquisa/PesquisaSalas");
+	    mv.addObject("salas", todasSalas);
+		return mv;
+		
+	}
+	
 	
 	@RequestMapping("{id_sala}")
 	public ModelAndView edicao(@PathVariable("id_sala") Sala sala)

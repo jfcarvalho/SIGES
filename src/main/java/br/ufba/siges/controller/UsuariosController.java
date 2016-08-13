@@ -48,11 +48,23 @@ public class UsuariosController {
 		return "redirect:/siges/usuarios/novo";
 	}
 	
-	@RequestMapping
-	public ModelAndView pesquisar()
+
+	@RequestMapping(method= RequestMethod.GET)
+	public ModelAndView pesquisar(String busca, String nome)
 	{
+		//List<Usuario> todosUsuarios= usuarios.findAll();
+		System.out.println(busca);
+		
+		if(nome != null) {
+			if(busca != null && nome.equals("on"))
+			{
+				List<Usuario> todosUsuarios= usuarios.findByNomeContaining(busca);
+				ModelAndView mv = new ModelAndView("/pesquisa/PesquisaUsuarios");
+				mv.addObject("usuarios", todosUsuarios);
+				return mv;
+			}
+		}
 		List<Usuario> todosUsuarios= usuarios.findAll();
-		//System.out.println(todosUsuarios.size());
 		ModelAndView mv = new ModelAndView("/pesquisa/PesquisaUsuarios");
 	    mv.addObject("usuarios", todosUsuarios);
 		return mv;
