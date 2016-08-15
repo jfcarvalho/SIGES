@@ -42,11 +42,11 @@ public class UsuariosController {
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		if(errors.hasErrors())
 		{
-			System.out.println("Que porra é que ta acontecendo?");
+		
 			return mv;
 		}
 		usuarios.save(usuario);
-		System.out.println("Que porra é que ta acontecendo? 2");
+	
 		//attributes.addFlashAttribute("mensagem", "Usuario salvo com sucesso!");	
 		mv.addObject("mensagem", "Cadastro de Usuário realizado com sucesso!");
 		return mv;

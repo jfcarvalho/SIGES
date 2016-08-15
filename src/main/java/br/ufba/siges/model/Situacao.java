@@ -2,7 +2,7 @@ package br.ufba.siges.model;
 
 public enum Situacao {
 	Disponivel("Disponivel"),
-	Manutencao("Manutencao"),
+	Manutencao("Manutenção"),
 	Interditado("Interditado");
 	
 	private String descricao;
