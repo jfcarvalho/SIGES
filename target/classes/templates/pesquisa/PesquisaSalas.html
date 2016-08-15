@@ -55,7 +55,7 @@
 					<td class="text-center"><div th:switch="${sala.situacao.descricao}"><span class="label label-success" th:text="${sala.situacao.descricao}" th:case="'Disponivel'"></span>
 																				<span class="label label-warning" th:text="${sala.situacao.descricao}" th:case="'Manutenção'"></span>
 																													  <span class="label label-danger" th:text="${sala.situacao.descricao}" th:case="'Interditado'"></span></div></td>  																												   
-					<td class="text-center"><a class="btn btn-link btn-xs" th:href="@{/siges/salas/{id_sala}(id_sala=${sala.id_sala})}" ><span class="glyphicon glyphicon-pencil" >editar</span></a><a th:href="@{/siges/salas/remove/{id_sala}(id_sala=${sala.id_sala})}" class="btn btn-link btn-xs" ><span class="glyphicon glyphicon-remove"> remover</span></a></td>
+					<td class="text-center"><a class="btn btn-link btn-xs" th:href="@{/siges/salas/{id_sala}(id_sala=${sala.id_sala})}" ><span class="glyphicon glyphicon-pencil" >editar</span></a><a class="btn btn-link btn-xs" data-toggle="modal" data-target="#detalhesSala" th:attr="data-id_sala=${sala.id_sala}, data-numero=${sala.numero}, data-departamento=${sala.departamento}, data-instituto=${sala.instituto}, data-tipo=${sala.tipo.descricao} , data-situacao=${sala.situacao.descricao}, data-capacidade=${sala.capacidade}"><span class="glyphicon glyphicon-eye-open"></span></a><a th:href="@{/siges/salas/remove/{id_sala}(id_sala=${sala.id_sala})}" class="btn btn-link btn-xs" ><span class="glyphicon glyphicon-remove"> remover</span></a></td>
 					
 				</tr>
 				
