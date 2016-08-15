@@ -37,15 +37,18 @@ public class UsuariosController {
 		return mv;
 	}
 	@RequestMapping(method = RequestMethod.POST)
-	public String salvar(Usuario usuario, Errors errors, RedirectAttributes attributes)
+	public ModelAndView salvar(@Validated Usuario usuario, Errors errors, RedirectAttributes attributes)
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-		System.out.println(usuario.getNome());
-		System.out.println(usuario.getPassword());
+		if(errors.hasErrors())
+		{
+			System.out.println("Que porra é que ta acontecendo?");
+			return mv;
+		}
 		usuarios.save(usuario);
-		
+		System.out.println("Que porra é que ta acontecendo? 2");
 		attributes.addFlashAttribute("mensagem", "Usuario salvo com sucesso!");	
-		return "redirect:/siges/usuarios/novo";
+		return mv;
 	}
 	
 

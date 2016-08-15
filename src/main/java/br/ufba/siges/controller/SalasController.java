@@ -40,13 +40,17 @@ public class SalasController {
 		return mv;
 	}
 	@RequestMapping(method = RequestMethod.POST)
-	public String salvar(@Validated Sala sala, Errors errors, RedirectAttributes attributes)
+	public ModelAndView salvar(@Validated Sala sala, Errors errors, RedirectAttributes attributes)
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+		if(errors.hasErrors())
+		{
+			return mv;
+		}
 		salas.save(sala);
 		
 		attributes.addFlashAttribute("mensagem", "Sala salva com sucesso!");	
-		return "redirect:/siges/salas/novo";
+		return mv;
 	}
 	
 	/*

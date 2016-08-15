@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 @Entity
 
@@ -11,7 +12,9 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_usuario;
+	@Size(min=2, max=100, message="O tamanho do campo nome tem que ser entre 2 e 20")
 	private String nome;
+	@Size(min=4, max=100, message="O tamanho do campo senha tem que ser entre 4 e 20")
 	private String password;
 	private Nivel nivel_acesso;
 	
