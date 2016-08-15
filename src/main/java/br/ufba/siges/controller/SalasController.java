@@ -48,8 +48,8 @@ public class SalasController {
 			return mv;
 		}
 		salas.save(sala);
-		
-		attributes.addFlashAttribute("mensagem", "Sala salva com sucesso!");	
+		mv.addObject("mensagem", "Cadastro de Sala realizado com sucesso!");
+		//attributes.addFlashAttribute("mensagem", "Sala salva com sucesso!");	
 		return mv;
 	}
 	
