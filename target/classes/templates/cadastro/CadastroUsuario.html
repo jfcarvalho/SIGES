@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/layout/LayoutPadrao">
 <head>
 
 <title>Cadastro de Usuários</title>
 </head>
 
-
+<section layout:fragment="conteudo">
 <form class="form-horizontal" method="POST" action="/siges/usuarios" th:object="${usuario}">
 		
 		<div class="panel panel-default">
@@ -51,5 +51,6 @@
 	</div>
 	
 </form>
+</section>
 
 </html>

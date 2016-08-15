@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/layout/LayoutPadrao">
 <head>
 
 <title>Cadastro de Salas</title>
 </head>
 
-
+<section layout:fragment="conteudo">
 <form class="form-horizontal" method="POST" action="/siges/salas" th:object="${sala}">
 		
 		<div class="panel panel-default">
@@ -51,14 +51,17 @@
 			<div class="col-sm-2">
 				<input type="text" class="form-control" id="capacidade" name="capacidade" th:field="*{capacidade}"/>
 			</div>
-</div>
-
-<label for="nome" class="col-sm-2 control-label">Tipo de Sala:</label>
+			
+			<label for="nome" class="col-sm-2 control-label">Tipo de Sala:</label>
 			<div class="col-sm-2">
 				<select class="form-control" name="tipo">
 					<option th:each="tipo: ${todosTiposSalas}" th:value="${tipo}" th:text="${tipo.descricao}" th:selected="${s} ? ${s.tipo.descricao} == ${tipo.descricao}"></option>
 				</select>
 			</div>
+			
+</div>
+
+
 </div>
 		
 			<div class="form-group">
@@ -71,5 +74,5 @@
 
 	
 </form>
-
+</section>
 </html>
