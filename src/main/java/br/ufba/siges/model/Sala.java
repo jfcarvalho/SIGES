@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -13,10 +14,13 @@ public class Sala {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //Significa que os valores de indice tabela serão criados automaticamente através de AUTO INCREMENT
 	private Integer id_sala;
 	@Size(min=1, max=100, message="O tamanho do campo número da sala tem que ser entre 1 e 20")
+	@Pattern(regexp = "[0-9]*",message="So é permitido números no campo Número de sala")
 	private String numero;
+	@Pattern(regexp = "[a-z-A-Z]*" ,message="So é permitido caracteres no campo Instituto")
 	@Size(min=1, max=100, message="O tamanho do campo instituto tem que ser entre 1 e 50")
 	private String instituto;
 	@Size(min=2, max=50, message="O tamanho do campo departamento tem que ser entre 2 e 50")
+	@Pattern(regexp = "[a-z-A-Z]*" ,message="So é permitido caracteres no campo Departamento")
 	private String departamento;
 	private TipoDeSala tipo;
 	private Situacao situacao;

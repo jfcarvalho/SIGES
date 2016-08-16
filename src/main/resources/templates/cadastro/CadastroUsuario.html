@@ -26,11 +26,31 @@
 				<input type="text" class="form-control" id="nome" name="nome" th:field="*{nome}"/>
 			</div>
 		</div>
+		<div class="form-group" th:classappend="${#fields.hasErrors('data_nascimento')} ? has-error">
+			<label for="data_compra" class="col-sm-2 control-label">Data de nascimento:</label>
+			<div class="col-sm-2">
+				<input type="text" class="form-control" id="data_nascimento" name="data_nascimento" th:field="*{data_nascimento}" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-language="pt-BR" data-date-autoclose="true" data-date-orientation="bottom" value="teste"/>
+			</div>
+</div>
 			
 			<div class="form-group" th:classappend="${#fields.hasErrors('password')} ? has-error">
 			<label for="nome" class="col-sm-2 control-label" >Password:</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control" id="password" name="password" th:field="*{password}"/>
+				<input type="password" class="form-control" id="password" name="password" th:field="*{password}"/>
+			</div>
+		</div>
+		
+		<div class="form-group" th:classappend="${#fields.hasErrors('email')} ? has-error">
+			<label for="nome" class="col-sm-2 control-label" >Email:</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="email" name="email" th:field="*{email}"/>
+			</div>
+		</div>
+		
+		<div class="form-group" th:classappend="${#fields.hasErrors('endereco')} ? has-error">
+			<label for="nome" class="col-sm-2 control-label" >Endereço:</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="endereco" name="endereco" th:field="*{endereco}"/>
 			</div>
 		</div>
 		
@@ -40,6 +60,8 @@
 					<option th:each="nivel : ${todosNiveisUsuario}" th:value="${nivel}" th:text="${nivel.nivel}" th:selected="${u} ? ${u.nivel_acesso.nivel} == ${nivel.nivel}"></option>
 				</select>
 			</div>
+			
+			
 </div>
 		
 			<div class="form-group">
