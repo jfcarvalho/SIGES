@@ -20,7 +20,7 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_usuario;
-	@Pattern(regexp = "[a-z-A-Z-\\s]*" ,message="So é permitido caracteres no campo Nome")
+	
 	@Size(min=2, max=100, message="O tamanho do campo nome tem que ser entre 2 e 20")
 	private String nome;
 	@Size(min=4, max=100, message="O tamanho do campo senha tem que ser entre 4 e 20")

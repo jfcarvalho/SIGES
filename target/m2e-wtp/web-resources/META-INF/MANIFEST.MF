@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: siges
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: nessk
+Built-By: Jean
 Implementation-Vendor-Id: br.ufba
-Build-Jdk: 1.8.0_101
+Build-Jdk: 1.8.0_91
 Implementation-URL: http://projects.spring.io/spring-boot/siges/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.

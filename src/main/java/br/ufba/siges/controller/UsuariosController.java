@@ -45,9 +45,11 @@ public class UsuariosController {
 		
 			return mv;
 		}
+		
+		
 		usuarios.save(usuario);
 	
-		//attributes.addFlashAttribute("mensagem", "Usuario salvo com sucesso!");	
+		attributes.addFlashAttribute("mensagem", "Usuario salvo com sucesso!");	
 		mv.addObject("mensagem", "Cadastro de Usuário realizado com sucesso!");
 		return mv;
 	}
@@ -57,7 +59,7 @@ public class UsuariosController {
 	public ModelAndView pesquisar(String busca, String nome)
 	{
 		//List<Usuario> todosUsuarios= usuarios.findAll();
-		System.out.println(busca);
+		
 		
 		if(nome != null) {
 			if(busca != null && nome.equals("on"))
@@ -86,8 +88,8 @@ public class UsuariosController {
 	@RequestMapping("/remove/{id_usuario}")
 	public String remove(@PathVariable("id_usuario") Integer id_usuario, RedirectAttributes attributes)
 	{
-		//ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-		System.out.println(id_usuario);
+		
+		
 		usuarios.delete(id_usuario);
 		attributes.addFlashAttribute("mensagem", "Sala excluida com sucesso com sucesso!");	
 		return "redirect:/siges/usuarios";
@@ -97,6 +99,7 @@ public class UsuariosController {
 	public List<Nivel> todosNiveisUsuario() {
 		return Arrays.asList(Nivel.values());
 }
+	
 	@ModelAttribute("todosUsuarios")
 	public List<Usuario> todosUsuarios()
 	{
