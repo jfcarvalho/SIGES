@@ -27,30 +27,23 @@ import br.ufba.siges.repository.Salas;
 
 public class SalasController {
 	private static final String CADASTRO_VIEW = "/cadastro/CadastroSala"; 
-	private static final String REMOCAO_MENU = "/remocao/RemoverSala"; 
+	 
 	@Autowired
 	private Salas salas;
 	
-	@RequestMapping("/novo")
+	
 	
 	public ModelAndView novo()
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-		mv.addObject(new Sala());
+		
 		return mv;
 	}
-	@RequestMapping(method = RequestMethod.POST)
+	
 	public ModelAndView salvar(@Validated Sala sala, Errors errors, RedirectAttributes attributes)
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-		if(errors.hasErrors())
-		{
-			return mv;
-		}
-		salas.save(sala);
-		mv.addObject("mensagem", "Cadastro de Sala realizado com sucesso!");
-		
-		
+			
 		return mv;
 	}
 	
@@ -87,31 +80,25 @@ public class SalasController {
 	}
 	
 	
-	@RequestMapping("{id_sala}")
+	
 	public ModelAndView edicao(@PathVariable("id_sala") Sala sala)
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-		//mv.addObject("s", sala);
-		//mv.addObject(sala);
+	
 		return mv;
 	}
 	
 
 	
-	@RequestMapping("/remove/{id_sala}")
+	
 	public String remove(@PathVariable("id_sala") Integer id_sala, RedirectAttributes attributes)
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-		salas.delete(id_sala);
+	
 		return "redirect:/siges/salas";
 	}
 	
-	@ModelAttribute("todasSalas")
-	public List<Sala> todasSalas()
-	{
-		List<Sala> todasSalas= salas.findAll();
-		return todasSalas;
-	}
+	
 	
 	@ModelAttribute("todasSituacoes")
 	public List<Situacao> todasSituacoes() {

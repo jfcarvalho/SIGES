@@ -26,31 +26,21 @@ public class UsuariosController {
 	@Autowired
 	private Usuarios usuarios;
 	
-	@RequestMapping("/novo")
+	
 	
 	public ModelAndView novo()
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-		mv.addObject(new Usuario());
+	
 		
 		//mv.addObject("todosNiveisUsuario", Nivel.values());
 		return mv;
 	}
-	@RequestMapping(method = RequestMethod.POST)
+	
 	public ModelAndView salvar(@Validated Usuario usuario, Errors errors, RedirectAttributes attributes)
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-		if(errors.hasErrors())
-		{
-		
-			return mv;
-		}
-		
-		
-		usuarios.save(usuario);
 	
-		attributes.addFlashAttribute("mensagem", "Usuario salvo com sucesso!");	
-		mv.addObject("mensagem", "Cadastro de Usuário realizado com sucesso!");
 		return mv;
 	}
 	
@@ -76,22 +66,20 @@ public class UsuariosController {
 		return mv;
 	}
 	
-	@RequestMapping("{id_usuario}")
+	
 	public ModelAndView edicao(@PathVariable("id_usuario") Usuario usuario)
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-		mv.addObject("u", usuario);
-		mv.addObject(usuario);
+	
 		return mv;
 	}
 	
-	@RequestMapping("/remove/{id_usuario}")
+	
 	public String remove(@PathVariable("id_usuario") Integer id_usuario, RedirectAttributes attributes)
 	{
 		
 		
-		usuarios.delete(id_usuario);
-		attributes.addFlashAttribute("mensagem", "Sala excluida com sucesso com sucesso!");	
+	
 		return "redirect:/siges/usuarios";
 	}
 	
@@ -100,11 +88,6 @@ public class UsuariosController {
 		return Arrays.asList(Nivel.values());
 }
 	
-	@ModelAttribute("todosUsuarios")
-	public List<Usuario> todosUsuarios()
-	{
-		List<Usuario> todosUsuarios= usuarios.findAll();
-		return todosUsuarios;
-}
+	
 	
 }
