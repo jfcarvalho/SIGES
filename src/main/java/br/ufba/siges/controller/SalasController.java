@@ -91,8 +91,8 @@ public class SalasController {
 	public ModelAndView edicao(@PathVariable("id_sala") Sala sala)
 	{
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-		//mv.addObject("s", sala);
-		//mv.addObject(sala);
+		mv.addObject("s", sala);
+		mv.addObject(sala);
 		return mv;
 	}
 	
